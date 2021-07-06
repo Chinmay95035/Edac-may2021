@@ -1,0 +1,608 @@
+MiniProject Database Module
+              BY
+              CHINMAY DESHMUKH (STUDENT ID -210540581029)
+              CHIRAG DAVE (STUDENT ID -210540581031)
+==============================================================================
+             GUIDED BY:
+             Mrs ASHWINI JADHAV
+===============================================================================
+TOPIC- DATABASE OF COVID VACCINATION IN NASIK CITY
+        -This miniproject deals with real life example of the vaccination against COVID-19 going on in the entire world
+        -We have created a data base of a city "NASIK" and have added all necessary information in it
+        -We have tried our best to use maximum query of MySQL
+ ==============================================================================================================================      
+APPLICATION/USE OF DATABASE :
+         - Our database is very helpful to fetch information of entire city regarding vaccination within minute
+         - Hence we can get count of vaccination as well age wise vaccination report of city
+         - Our databse helps to curb malpractises in vaccination drive i.e only on correct ID information ,citizen are illegible for vaccination
+         - This miniproject will help to reduce time in data handeling and will benefit vaccination centre and all administrative bodies 
+           to keep check at the centre without visiting them
+
+==========================================================================================================================================================
+
+create database Nasik;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use nasik;
+Database changed
+mysql> create table vaccination
+    -> (
+    -> Centre varchar(30),
+    -> Name varchar(30),
+    -> Id_card varchar(30),
+    -> Age varchar(5),
+    -> Name_of_vaccine varchar(15)'
+    '> ^C
+mysql> create table vaccination
+    -> (
+    -> Centre varchar(30),
+    -> Name varchar(30),
+    -> Id_card varchar(30),
+    -> Age varchar(5),
+    -> Name_of_vaccine varchar(15),
+    -> Dose1 char(4),
+    -> Dose2 char(4),
+    -> Date_of_Dose1 date,
+    -> Date_of_Dose2 date,
+    -> Vaccinated_by varchar(30),
+    -> Registration_no char(11)
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+INSERTING NAMES OF CITIZENS GETTING VACCINATED
+mysql> insert into vaccination values('Appollo Hospital','Chirag','PAN','24','COVISHIELD','YES',' ','2021/06/12','00-00-00 ','Dr. Ashwini Jadhav','8879313014');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from  vaccination;
++------------------+--------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Centre           | Name   | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by      | Registration_no |
++------------------+--------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Appollo Hospital | Chirag | PAN     | 24   | COVISHIELD      | YES   |       | 2021-06-12    | 0000-00-00    | Dr. Ashwini Jadhav | 8879313014      |
++------------------+--------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+1 row in set (0.00 sec)
+
+mysql> insert into vaccination values('Appollo Hospital','Chinmay','AADHAR','24','COVISHIELD','YES',' ','2021/06/15','00-00-00 ','Dr. Sohan More','9503564560');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from  vaccination;
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Centre           | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by      | Registration_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Appollo Hospital | Chirag  | PAN     | 24   | COVISHIELD      | YES   |       | 2021-06-12    | 0000-00-00    | Dr. Ashwini Jadhav | 8879313014      |
+| Appollo Hospital | Chinmay | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More     | 9503564560      |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into vaccination values('Ashoka Hospital','Bhavesh','PAN','23','COWAXIN','YES','YES','2021/03/11','21-06-10','Dr. Ashwini Jadhav','7775902644');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from  vaccination;
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Centre           | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by      | Registration_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Appollo Hospital | Chirag  | PAN     | 24   | COVISHIELD      | YES   |       | 2021-06-12    | 0000-00-00    | Dr. Ashwini Jadhav | 8879313014      |
+| Appollo Hospital | Chinmay | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More     | 9503564560      |
+| Ashoka Hospital  | Bhavesh | PAN     | 23   | COWAXIN         | YES   | YES   | 2021-03-11    | 2021-06-10    | Dr. Ashwini Jadhav | 7775902644      |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into vaccination values('City Hospital','Chhaya','AADHAR','24','COVISHIELD','YES',' ','2021/06/18','00-00-00 ','Dr. Sohan More','9049360001');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from  vaccination;
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Centre           | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by      | Registration_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Appollo Hospital | Chirag  | PAN     | 24   | COVISHIELD      | YES   |       | 2021-06-12    | 0000-00-00    | Dr. Ashwini Jadhav | 8879313014      |
+| Appollo Hospital | Chinmay | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More     | 9503564560      |
+| Ashoka Hospital  | Bhavesh | PAN     | 23   | COWAXIN         | YES   | YES   | 2021-03-11    | 2021-06-10    | Dr. Ashwini Jadhav | 7775902644      |
+| City Hospital    | Chhaya  | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Sohan More     | 9049360001      |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into vaccination values('Ashoka Hospital','Atul','AADHAR','41','COVISHIELD','YES','YES','2021/03/08','21-06-15','Dr. Vineeta singh','9876543210');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from  vaccination;
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Centre           | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by      | Registration_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Appollo Hospital | Chirag  | PAN     | 24   | COVISHIELD      | YES   |       | 2021-06-12    | 0000-00-00    | Dr. Ashwini Jadhav | 8879313014      |
+| Appollo Hospital | Chinmay | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More     | 9503564560      |
+| Ashoka Hospital  | Bhavesh | PAN     | 23   | COWAXIN         | YES   | YES   | 2021-03-11    | 2021-06-10    | Dr. Ashwini Jadhav | 7775902644      |
+| City Hospital    | Chhaya  | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Sohan More     | 9049360001      |
+| Ashoka Hospital  | Atul    | AADHAR  | 41   | COVISHIELD      | YES   | YES   | 2021-03-08    | 2021-06-15    | Dr. Vineeta singh  | 9876543210      |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into vaccination values('Ashoka Hospital','Deepali','PAN','27','COVISHIELD','YES',' ','2021/06/18','00-00-00 ','Dr. Aishwarya Nikam','7741921427');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from  vaccination;
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+| Centre           | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by       | Registration_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+| Appollo Hospital | Chirag  | PAN     | 24   | COVISHIELD      | YES   |       | 2021-06-12    | 0000-00-00    | Dr. Ashwini Jadhav  | 8879313014      |
+| Appollo Hospital | Chinmay | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More      | 9503564560      |
+| Ashoka Hospital  | Bhavesh | PAN     | 23   | COWAXIN         | YES   | YES   | 2021-03-11    | 2021-06-10    | Dr. Ashwini Jadhav  | 7775902644      |
+| City Hospital    | Chhaya  | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Sohan More      | 9049360001      |
+| Ashoka Hospital  | Atul    | AADHAR  | 41   | COVISHIELD      | YES   | YES   | 2021-03-08    | 2021-06-15    | Dr. Vineeta singh   | 9876543210      |
+| Ashoka Hospital  | Deepali | PAN     | 27   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Aishwarya Nikam | 7741921427      |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+6 rows in set (0.00 sec)
+
+mysql> insert into vaccination values('Appollo Hospital','Ashwini','PAN','26','COVISHIELD','YES',' ','2021/04/19','00-00-00','Dr. Chirag Dave','9922165111');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from  vaccination;
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+| Centre           | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by       | Registration_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+| Appollo Hospital | Chirag  | PAN     | 24   | COVISHIELD      | YES   |       | 2021-06-12    | 0000-00-00    | Dr. Ashwini Jadhav  | 8879313014      |
+| Appollo Hospital | Chinmay | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More      | 9503564560      |
+| Ashoka Hospital  | Bhavesh | PAN     | 23   | COWAXIN         | YES   | YES   | 2021-03-11    | 2021-06-10    | Dr. Ashwini Jadhav  | 7775902644      |
+| City Hospital    | Chhaya  | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Sohan More      | 9049360001      |
+| Ashoka Hospital  | Atul    | AADHAR  | 41   | COVISHIELD      | YES   | YES   | 2021-03-08    | 2021-06-15    | Dr. Vineeta singh   | 9876543210      |
+| Ashoka Hospital  | Deepali | PAN     | 27   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Aishwarya Nikam | 7741921427      |
+| Appollo Hospital | Ashwini | PAN     | 26   | COVISHIELD      | YES   |       | 2021-04-19    | 0000-00-00    | Dr. Chirag Dave     | 9922165111      |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+7 rows in set (0.00 sec)
+
+FINDING CITIZENS WHO GOT VACCINATED IN A PARTICULAR AGE GROUP
+
+mysql> select * from vaccination where age between 20 and 40;
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+| Centre           | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by       | Registration_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+| Appollo Hospital | Chirag  | PAN     | 24   | COVISHIELD      | YES   |       | 2021-06-12    | 0000-00-00    | Dr. Ashwini Jadhav  | 8879313014      |
+| Appollo Hospital | Chinmay | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More      | 9503564560      |
+| Ashoka Hospital  | Bhavesh | PAN     | 23   | COWAXIN         | YES   | YES   | 2021-03-11    | 2021-06-10    | Dr. Ashwini Jadhav  | 7775902644      |
+| City Hospital    | Chhaya  | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Sohan More      | 9049360001      |
+| Ashoka Hospital  | Deepali | PAN     | 27   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Aishwarya Nikam | 7741921427      |
+| Appollo Hospital | Ashwini | PAN     | 26   | COVISHIELD      | YES   |       | 2021-04-19    | 0000-00-00    | Dr. Chirag Dave     | 9922165111      |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+6 rows in set (0.01 sec)
+
+FINDING NUMBER OF CITIZENS WHO GOT VACCINATED AT A PARTICULAR VACCINATION CENTRE
+
+mysql> select *from vaccination where centre = 'appollo hospital';
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Centre           | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by      | Registration_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Appollo Hospital | Chirag  | PAN     | 24   | COVISHIELD      | YES   |       | 2021-06-12    | 0000-00-00    | Dr. Ashwini Jadhav | 8879313014      |
+| Appollo Hospital | Chinmay | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More     | 9503564560      |
+| Appollo Hospital | Ashwini | PAN     | 26   | COVISHIELD      | YES   |       | 2021-04-19    | 0000-00-00    | Dr. Chirag Dave    | 9922165111      |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+3 rows in set (0.01 sec)
+
+TRACKING THE VACCINATION STATUS OF CITIZENS BY UNIQUE REGISTRATION NUMBER
+
+
+mysql> select * from vaccination where registration_no = '8879313014';
++------------------+--------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Centre           | Name   | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by      | Registration_no |
++------------------+--------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Appollo Hospital | Chirag | PAN     | 24   | COVISHIELD      | YES   |       | 2021-06-12    | 0000-00-00    | Dr. Ashwini Jadhav | 8879313014      |
++------------------+--------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+1 row in set (0.00 sec)
+
+FINDING NAMES OF CITIZEN WHO GOT VACCINATED IN A PARTICULAR TIME SPAN
+
+mysql> select * from vaccination where date_of_dose1 between '21-04-12' and '21-06-18';
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+| Centre           | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by       | Registration_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+| Appollo Hospital | Chirag  | PAN     | 24   | COVISHIELD      | YES   |       | 2021-06-12    | 0000-00-00    | Dr. Ashwini Jadhav  | 8879313014      |
+| Appollo Hospital | Chinmay | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More      | 9503564560      |
+| City Hospital    | Chhaya  | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Sohan More      | 9049360001      |
+| Ashoka Hospital  | Deepali | PAN     | 27   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Aishwarya Nikam | 7741921427      |
+| Appollo Hospital | Ashwini | PAN     | 26   | COVISHIELD      | YES   |       | 2021-04-19    | 0000-00-00    | Dr. Chirag Dave     | 9922165111      |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+5 rows in set (0.00 sec)
+
+GETTING LIST OF CITIZEN WHO RECEIVED BOTH DOSES OF VACCINE 
+mysql> select * from vaccination where dose1 = 'yes' and dose2 = 'yes';
++-----------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Centre          | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by      | Registration_no |
++-----------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Ashoka Hospital | Bhavesh | PAN     | 23   | COWAXIN         | YES   | YES   | 2021-03-11    | 2021-06-10    | Dr. Ashwini Jadhav | 7775902644      |
+| Ashoka Hospital | Atul    | AADHAR  | 41   | COVISHIELD      | YES   | YES   | 2021-03-08    | 2021-06-15    | Dr. Vineeta singh  | 9876543210      |
++-----------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+2 rows in set (0.00 sec)
+
+GETTING LIST OF CITIZEN WHO RECEIVED PARTICULAR VACCINE
+
+mysql> select * from vaccination where Name_Of_Vaccine = 'covishield';
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+| Centre           | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by       | Registration_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+| Appollo Hospital | Chirag  | PAN     | 24   | COVISHIELD      | YES   |       | 2021-06-12    | 0000-00-00    | Dr. Ashwini Jadhav  | 8879313014      |
+| Appollo Hospital | Chinmay | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More      | 9503564560      |
+| City Hospital    | Chhaya  | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Sohan More      | 9049360001      |
+| Ashoka Hospital  | Atul    | AADHAR  | 41   | COVISHIELD      | YES   | YES   | 2021-03-08    | 2021-06-15    | Dr. Vineeta singh   | 9876543210      |
+| Ashoka Hospital  | Deepali | PAN     | 27   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Aishwarya Nikam | 7741921427      |
+| Appollo Hospital | Ashwini | PAN     | 26   | COVISHIELD      | YES   |       | 2021-04-19    | 0000-00-00    | Dr. Chirag Dave     | 9922165111      |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+6 rows in set (0.00 sec)
+
+GETTING LIST OF CITIZEN WHO RECEIVED PARTICULAR VACCINE
+
+
+mysql> select * from vaccination where Name_Of_Vaccine = 'cowaxin';
++-----------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Centre          | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by      | Registration_no |
++-----------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+| Ashoka Hospital | Bhavesh | PAN     | 23   | COWAXIN         | YES   | YES   | 2021-03-11    | 2021-06-10    | Dr. Ashwini Jadhav | 7775902644      |
++-----------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+--------------------+-----------------+
+
+
+UPDATING PROFILE OF CITIZEN FOR SECOND DOSE
+
+1 row in set (0.00 sec)
+mysql> update vaccination set Dose2 = 'YES' where name = 'chirag';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update vaccination set date_of_dose2 = '21-08-12' where name = 'chirag';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from vaccination;
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+| Centre           | Name    | Id_card | Age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by       | Registration_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+| Appollo Hospital | Chirag  | PAN     | 24   | COVISHIELD      | YES   | YES   | 2021-06-12    | 2021-08-12    | Dr. Ashwini Jadhav  | 8879313014      |
+| Appollo Hospital | Chinmay | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More      | 9503564560      |
+| Ashoka Hospital  | Bhavesh | PAN     | 23   | COWAXIN         | YES   | YES   | 2021-03-11    | 2021-07-30    | Dr. Ashwini Jadhav  | 7775902644      |
+| City Hospital    | Chhaya  | AADHAR  | 24   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Sohan More      | 9049360001      |
+| Ashoka Hospital  | Atul    | AADHAR  | 41   | COVISHIELD      | YES   | YES   | 2021-03-08    | 2021-07-30    | Dr. Vineeta singh   | 9876543210      |
+| Ashoka Hospital  | Deepali | PAN     | 27   | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Aishwarya Nikam | 7741921427      |
+| Appollo Hospital | Ashwini | PAN     | 26   | COVISHIELD      | YES   |       | 2021-04-19    | 0000-00-00    | Dr. Chirag Dave     | 9922165111      |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+---------------------+-----------------+
+7 rows in set (0.00 sec)
+
+
+UPDATION OF VACCINATION 
+
+
+
+ysql> insert into vaccination values('City Hospital','Thomas','PAN','54','COWAXIN','YES','YES','21/03/10','21/05/15','Dr. Rahul Joshi','8796542187');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into vaccination values('Balaji Hospital','Kiran','AADHAR','60','COWAXIN','YES','YES','21/04/20','21/06/25','Dr. Subhash Deshmukh','8796544587');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into vaccination values('Appollo Hospital','Fatima','AADHAR','48','COVISHIELD','YES','YES','21/04/14','21/06/22','Dr. Katrina Jadhav','7412547869');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into vaccination values('Ashoka Hospital','Noor','PAN','32','COVISHIELD','YES',' ','21/06/11','00-00-00','Dr. Deepika chopra','4545871269');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into vaccination values('City Hospital','Ruksana','AADHAR','51','COWAXIN','YES','YES','21/02/11','21/05/15','Dr. Priyanka malini','7485769584');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from vaccination;
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+----------------------+-----------------+
+| Centre           | Name    | Id_card | age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by        | Registration_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+----------------------+-----------------+
+| Appollo Hospital | Chirag  | PAN     |   24 | COVISHIELD      | YES   | YES   | 2021-06-12    | 2021-08-12    | Dr. Ashwini Jadhav   | 8879313014      |
+| Appollo Hospital | Chinmay | AADHAR  |   24 | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More       | 9503564560      |
+| Ashoka Hospital  | Bhavesh | PAN     |   23 | COWAXIN         | YES   | YES   | 2021-03-11    | 2021-07-30    | Dr. Ashwini Jadhav   | 7775902644      |
+| City Hospital    | Chhaya  | AADHAR  |   24 | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Sohan More       | 9049360001      |
+| Ashoka Hospital  | Atul    | AADHAR  |   41 | COVISHIELD      | YES   | YES   | 2021-03-08    | 2021-07-30    | Dr. Vineeta singh    | 9876543210      |
+| Ashoka Hospital  | Deepali | PAN     |   27 | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Aishwarya Nikam  | 7741921427      |
+| Appollo Hospital | Ashwini | PAN     |   26 | COVISHIELD      | YES   |       | 2021-04-19    | 0000-00-00    | Dr. Chirag Dave      | 9922165111      |
+| City Hospital    | Thomas  | PAN     |   54 | COWAXIN         | YES   | YES   | 2021-03-10    | 2021-05-15    | Dr. Rahul Joshi      | 8796542187      |
+| Balaji Hospital  | Kiran   | AADHAR  |   60 | COWAXIN         | YES   | YES   | 2021-04-20    | 2021-06-25    | Dr. Subhash Deshmukh | 8796544587      |
+| Appollo Hospital | Fatima  | AADHAR  |   48 | COVISHIELD      | YES   | YES   | 2021-04-14    | 2021-06-22    | Dr. Katrina Jadhav   | 7412547869      |
+| Ashoka Hospital  | Noor    | PAN     |   32 | COVISHIELD      | YES   |       | 2021-06-11    | 0000-00-00    | Dr. Deepika chopra   | 4545871269      |
+| City Hospital    | Ruksana | AADHAR  |   51 | COWAXIN         | YES   | YES   | 2021-02-11    | 2021-05-15    | Dr. Priyanka malini  | 7485769584      |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+----------------------+-----------------+
+12 rows in set (0.00 sec)
+
+FINDING CITIZEN WHO RECEIVED BOTH DOSES OF VACCINE, BY USING GROUPBY QUERY
+
+mysql> select name,dose2 from vaccination
+    -> where dose2 = 'YES'
+    -> group by name;
++---------+-------+
+| name    | dose2 |
++---------+-------+
+| Atul    | YES   |
+| Bhavesh | YES   |
+| Chirag  | YES   |
+| Fatima  | YES   |
+| Kiran   | YES   |
+| Ruksana | YES   |
+| Thomas  | YES   |
++---------+-------+
+7 rows in set (0.01 sec)
+
+FINDING TOTAL INFORMATION ABOUT A PARTICULAR CITIZEN WHO HAS RECEIVED BOTH DOSES OF VACCINE
+
+mysql> select vaccination.name,vaccination.centre,vaccination.dose1,vaccination.dose2,vaccination.date_of_dose1,vaccination.date_of_dose2,vaccination.registration_no,vaccination.age,vaccination.vaccinated_by from vaccination where name= 'atul';
++------+-----------------+-------+-------+---------------+---------------+-----------------+------+-------------------+
+| name | centre          | dose1 | dose2 | date_of_dose1 | date_of_dose2 | registration_no | age  | vaccinated_by     |
++------+-----------------+-------+-------+---------------+---------------+-----------------+------+-------------------+
+| Atul | Ashoka Hospital | YES   | YES   | 2021-03-08    | 2021-07-30    | 9876543210      |   41 | Dr. Vineeta singh |
++------+-----------------+-------+-------+---------------+---------------+-----------------+------+-------------------+
+1 row in set (0.00 sec)
+
+FINDING CITIZEN WHO HAVE USED PARTICULAR ID CARD FOR VACCINATION
+mysql> select name,id_card from vaccination
+    -> where id_card = 'PAN'
+    -> group by name;
++---------+---------+
+| name    | id_card |
++---------+---------+
+| Ashwini | PAN     |
+| Bhavesh | PAN     |
+| Chirag  | PAN     |
+| Deepali | PAN     |
+| Noor    | PAN     |
+| Thomas  | PAN     |
++---------+---------+
+6 rows in set (0.00 sec)
+
+FINDING THE COUNT OF CITIZEN WHO USED PARTICULAR IDCARD
+
+mysql> select count(id_card) PAN from vaccination
+    -> where id_card = 'PAN';
++-----+
+| PAN |
++-----+
+|   6 |
++-----+
+1 row in set (0.00 sec)
+
+ADDING PARTICULAR COLUMN 
+
+mysql> alter table vaccination add Ward_no int;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from vaccination;
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+----------------------+-----------------+---------+
+| Centre           | Name    | Id_card | age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by        | Registration_no | Ward_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+----------------------+-----------------+---------+
+| Appollo Hospital | Chirag  | PAN     |   24 | COVISHIELD      | YES   | YES   | 2021-06-12    | 2021-08-12    | Dr. Ashwini Jadhav   | 8879313014      |    NULL |
+| Appollo Hospital | Chinmay | AADHAR  |   24 | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More       | 9503564560      |    NULL |
+| Ashoka Hospital  | Bhavesh | PAN     |   23 | COWAXIN         | YES   | YES   | 2021-03-11    | 2021-07-30    | Dr. Ashwini Jadhav   | 7775902644      |    NULL |
+| City Hospital    | Chhaya  | AADHAR  |   24 | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Sohan More       | 9049360001      |    NULL |
+| Ashoka Hospital  | Atul    | AADHAR  |   41 | COVISHIELD      | YES   | YES   | 2021-03-08    | 2021-07-30    | Dr. Vineeta singh    | 9876543210      |    NULL |
+| Ashoka Hospital  | Deepali | PAN     |   27 | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Aishwarya Nikam  | 7741921427      |    NULL |
+| Appollo Hospital | Ashwini | PAN     |   26 | COVISHIELD      | YES   |       | 2021-04-19    | 0000-00-00    | Dr. Chirag Dave      | 9922165111      |    NULL |
+| City Hospital    | Thomas  | PAN     |   54 | COWAXIN         | YES   | YES   | 2021-03-10    | 2021-05-15    | Dr. Rahul Joshi      | 8796542187      |    NULL |
+| Balaji Hospital  | Kiran   | AADHAR  |   60 | COWAXIN         | YES   | YES   | 2021-04-20    | 2021-06-25    | Dr. Subhash Deshmukh | 8796544587      |    NULL |
+| Appollo Hospital | Fatima  | AADHAR  |   48 | COVISHIELD      | YES   | YES   | 2021-04-14    | 2021-06-22    | Dr. Katrina Jadhav   | 7412547869      |    NULL |
+| Ashoka Hospital  | Noor    | PAN     |   32 | COVISHIELD      | YES   |       | 2021-06-11    | 0000-00-00    | Dr. Deepika chopra   | 4545871269      |    NULL |
+| City Hospital    | Ruksana | AADHAR  |   51 | COWAXIN         | YES   | YES   | 2021-02-11    | 2021-05-15    | Dr. Priyanka malini  | 7485769584      |    NULL |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+----------------------+-----------------+---------+
+12 rows in set (0.00 sec)
+
+INSERTING DETAILS
+
+mysql> update vaccination set Ward_no = 1 where centre = 'Appollo Hospital';
+Query OK, 4 rows affected (0.01 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> update vaccination set Ward_no = 2 where centre = 'Ashoka Hospital';
+Query OK, 4 rows affected (0.01 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> update vaccination set Ward_no = 3 where centre = 'Balaji Hospital';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update vaccination set Ward_no = 4 where centre = 'City Hospital';
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+ysql> select * from vaccination;
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+----------------------+-----------------+---------+
+| Centre           | Name    | Id_card | age  | Name_of_vaccine | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by        | Registration_no | Ward_no |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+----------------------+-----------------+---------+
+| Appollo Hospital | Chirag  | PAN     |   24 | COVISHIELD      | YES   | YES   | 2021-06-12    | 2021-08-12    | Dr. Ashwini Jadhav   | 8879313014      |       1 |
+| Appollo Hospital | Chinmay | AADHAR  |   24 | COVISHIELD      | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More       | 9503564560      |       1 |
+| Ashoka Hospital  | Bhavesh | PAN     |   23 | COWAXIN         | YES   | YES   | 2021-03-11    | 2021-07-30    | Dr. Ashwini Jadhav   | 7775902644      |       2 |
+| City Hospital    | Chhaya  | AADHAR  |   24 | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Sohan More       | 9049360001      |       4 |
+| Ashoka Hospital  | Atul    | AADHAR  |   41 | COVISHIELD      | YES   | YES   | 2021-03-08    | 2021-07-30    | Dr. Vineeta singh    | 9876543210      |       2 |
+| Ashoka Hospital  | Deepali | PAN     |   27 | COVISHIELD      | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Aishwarya Nikam  | 7741921427      |       2 |
+| Appollo Hospital | Ashwini | PAN     |   26 | COVISHIELD      | YES   |       | 2021-04-19    | 0000-00-00    | Dr. Chirag Dave      | 9922165111      |       1 |
+| City Hospital    | Thomas  | PAN     |   54 | COWAXIN         | YES   | YES   | 2021-03-10    | 2021-05-15    | Dr. Rahul Joshi      | 8796542187      |       4 |
+| Balaji Hospital  | Kiran   | AADHAR  |   60 | COWAXIN         | YES   | YES   | 2021-04-20    | 2021-06-25    | Dr. Subhash Deshmukh | 8796544587      |       3 |
+| Appollo Hospital | Fatima  | AADHAR  |   48 | COVISHIELD      | YES   | YES   | 2021-04-14    | 2021-06-22    | Dr. Katrina Jadhav   | 7412547869      |       1 |
+| Ashoka Hospital  | Noor    | PAN     |   32 | COVISHIELD      | YES   |       | 2021-06-11    | 0000-00-00    | Dr. Deepika chopra   | 4545871269      |       2 |
+| City Hospital    | Ruksana | AADHAR  |   51 | COWAXIN         | YES   | YES   | 2021-02-11    | 2021-05-15    | Dr. Priyanka malini  | 7485769584      |       4 |
++------------------+---------+---------+------+-----------------+-------+-------+---------------+---------------+----------------------+-----------------+---------+
+12 rows in set (0.00 sec)
+
+ADDING NEW TABLE
+
+mysql> create table Details
+    -> (
+    -> Ward_no int,
+    -> Abroad_Travel_History varchar(20),
+    -> Comorbidities varchar(30),
+    -> Secret_code char(5),
+    -> Name varchar(20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 7
+mysql> create table Details
+    -> (
+    -> Ward_no int,
+    -> Abroad_Travel_History varchar(20),
+    -> Comorbidities varchar(30),
+    -> Secret_code char(5),
+    -> Name varchar(20));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into details values(
+    -> '1','YES','Hyper Tension',12345,'Chirag'),
+    -> ('2','NO',' ','14567','Deepali');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from details;
++---------+-----------------------+---------------+-------------+---------+
+| Ward_no | Abroad_Travel_History | Comorbidities | Secret_code | Name    |
++---------+-----------------------+---------------+-------------+---------+
+|       1 | YES                   | Hyper Tension | 12345       | Chirag  |
+|       2 | NO                    |               | 14567       | Deepali |
++---------+-----------------------+---------------+-------------+---------+
+2 rows in set (0.00 sec)
+
+mysql> insert into details values(
+    -> '3','YES','Diabetes',25478,'Kiran'),
+    -> ('4','YES','Heart Problem',27978,'Thomas');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from details;
++---------+-----------------------+---------------+-------------+---------+
+| Ward_no | Abroad_Travel_History | Comorbidities | Secret_code | Name    |
++---------+-----------------------+---------------+-------------+---------+
+|       1 | YES                   | Hyper Tension | 12345       | Chirag  |
+|       2 | NO                    |               | 14567       | Deepali |
+|       3 | YES                   | Diabetes      | 25478       | Kiran   |
+|       4 | YES                   | Heart Problem | 27978       | Thomas  |
++---------+-----------------------+---------------+-------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> drop secret_code from details;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'secret_code from details' at line 1
+mysql> delete secret_code from details;
+ERROR 1109 (42S02): Unknown table 'secret_code' in MULTI DELETE
+mysql> delete details where secret_code;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where secret_code' at line 1
+mysql> drop Secret_code from details;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Secret_code from details' at line 1
+mysql> alter table details drop column secret_code;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select *from details;
++---------+-----------------------+---------------+---------+
+| Ward_no | Abroad_Travel_History | Comorbidities | Name    |
++---------+-----------------------+---------------+---------+
+|       1 | YES                   | Hyper Tension | Chirag  |
+|       2 | NO                    |               | Deepali |
+|       3 | YES                   | Diabetes      | Kiran   |
+|       4 | YES                   | Heart Problem | Thomas  |
++---------+-----------------------+---------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> alter table details drop column Name;
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select *from details;
++---------+-----------------------+---------------+
+| Ward_no | Abroad_Travel_History | Comorbidities |
++---------+-----------------------+---------------+
+|       1 | YES                   | Hyper Tension |
+|       2 | NO                    |               |
+|       3 | YES                   | Diabetes      |
+|       4 | YES                   | Heart Problem |
++---------+-----------------------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> alter table vaccination drop Name_of_vaccine;
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from vaccination;
++------------------+---------+---------+------+-------+-------+---------------+---------------+----------------------+-----------------+---------+
+| Centre           | Name    | Id_card | age  | Dose1 | Dose2 | Date_of_Dose1 | Date_of_Dose2 | Vaccinated_by        | Registration_no | Ward_no |
++------------------+---------+---------+------+-------+-------+---------------+---------------+----------------------+-----------------+---------+
+| Appollo Hospital | Chirag  | PAN     |   24 | YES   | YES   | 2021-06-12    | 2021-08-12    | Dr. Ashwini Jadhav   | 8879313014      |       1 |
+| Appollo Hospital | Chinmay | AADHAR  |   24 | YES   |       | 2021-06-15    | 0000-00-00    | Dr. Sohan More       | 9503564560      |       1 |
+| Ashoka Hospital  | Bhavesh | PAN     |   23 | YES   | YES   | 2021-03-11    | 2021-07-30    | Dr. Ashwini Jadhav   | 7775902644      |       2 |
+| City Hospital    | Chhaya  | AADHAR  |   24 | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Sohan More       | 9049360001      |       4 |
+| Ashoka Hospital  | Atul    | AADHAR  |   41 | YES   | YES   | 2021-03-08    | 2021-07-30    | Dr. Vineeta singh    | 9876543210      |       2 |
+| Ashoka Hospital  | Deepali | PAN     |   27 | YES   |       | 2021-06-18    | 0000-00-00    | Dr. Aishwarya Nikam  | 7741921427      |       2 |
+| Appollo Hospital | Ashwini | PAN     |   26 | YES   |       | 2021-04-19    | 0000-00-00    | Dr. Chirag Dave      | 9922165111      |       1 |
+| City Hospital    | Thomas  | PAN     |   54 | YES   | YES   | 2021-03-10    | 2021-05-15    | Dr. Rahul Joshi      | 8796542187      |       4 |
+| Balaji Hospital  | Kiran   | AADHAR  |   60 | YES   | YES   | 2021-04-20    | 2021-06-25    | Dr. Subhash Deshmukh | 8796544587      |       3 |
+| Appollo Hospital | Fatima  | AADHAR  |   48 | YES   | YES   | 2021-04-14    | 2021-06-22    | Dr. Katrina Jadhav   | 7412547869      |       1 |
+| Ashoka Hospital  | Noor    | PAN     |   32 | YES   |       | 2021-06-11    | 0000-00-00    | Dr. Deepika chopra   | 4545871269      |       2 |
+| City Hospital    | Ruksana | AADHAR  |   51 | YES   | YES   | 2021-02-11    | 2021-05-15    | Dr. Priyanka malini  | 7485769584      |       4 |
++------------------+---------+---------+------+-------+-------+---------------+---------------+----------------------+-----------------+---------+
+12 rows in set (0.00 sec)
+
+mysql> alter table details drop Abroad_Travel_History;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table details drop Comorbidities;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table details add Name_of_Vaccine;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> alter table details add Name_of_Vaccine varchar(20);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from details;
++---------+-----------------+
+| Ward_no | Name_of_Vaccine |
++---------+-----------------+
+|       1 | NULL            |
+|       2 | NULL            |
+|       3 | NULL            |
+|       4 | NULL            |
++---------+-----------------+
+4 rows in set (0.00 sec)
+
+mysql> update details set Name_of_Vaccine = 'Covishield' where ward_no = 1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update details set Name_of_Vaccine = 'Covishield' where ward_no = 4;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update details set Name_of_Vaccine = 'Cowaxin' where ward_no = 2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update details set Name_of_Vaccine = 'Sputnic' where ward_no = 3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from details;
++---------+-----------------+
+| Ward_no | Name_of_Vaccine |
++---------+-----------------+
+|       1 | Covishield      |
+|       2 | Cowaxin         |
+|       3 | Sputnic         |
+|       4 | Covishield      |
++---------+-----------------+
+4 rows in set (0.00 sec)
+
+
+USE OF JOIN COMMAND TO FIND NAME OF VACCINE AND NAME OF CITIZEN 
+
+mysql> select Name_of_vaccine,Name from vaccination,details where details.Ward_no = vaccination.Ward_no order by Name_of_vaccine;
++-----------------+---------+
+| Name_of_vaccine | Name    |
++-----------------+---------+
+| Covishield      | Ruksana |
+| Covishield      | Thomas  |
+| Covishield      | Chhaya  |
+| Covishield      | Fatima  |
+| Covishield      | Chirag  |
+| Covishield      | Chinmay |
+| Covishield      | Ashwini |
+| Cowaxin         | Bhavesh |
+| Cowaxin         | Atul    |
+| Cowaxin         | Deepali |
+| Cowaxin         | Noor    |
+| Sputnic         | Kiran   |
++-----------------+---------+
+12 rows in set (0.00 sec)
+
+mysql>
+
+
+
